@@ -24,6 +24,9 @@ int main() {
   putText(image, "HelloOpenCV!", Point(70, 70),
 		FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(255), 1, CV_AA);
 
+  putText(image, "Ciao!", Point(70, 140),
+		FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(255), 1, CV_AA);
+
   //save image to file
   imwrite("myimage.jpg", image);
 

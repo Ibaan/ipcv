@@ -17,8 +17,8 @@ using namespace cv;
 
 int main() { 
 
-  // Read image from file
-  Mat image = imread("mandrillRGB.jpg", 1);
+  // Read image from file 
+  Mat image = imread("mandrill0.jpg", 1);
 
   // Threshold by looping through all pixels
   for(int y=0; y<image.rows; y++) {
@@ -26,19 +26,14 @@ int main() {
      uchar pixelBlue = image.at<Vec3b>(y,x)[0];
      uchar pixelGreen = image.at<Vec3b>(y,x)[1];
      uchar pixelRed = image.at<Vec3b>(y,x)[2];
-     if (pixelBlue>200) {
-       image.at<Vec3b>(y,x)[0]=255;
-       image.at<Vec3b>(y,x)[1]=255;
-       image.at<Vec3b>(y,x)[2]=255;
-     }
-     else {
-       image.at<Vec3b>(y,x)[0]=0;
-       image.at<Vec3b>(y,x)[1]=0;
-       image.at<Vec3b>(y,x)[2]=0;
- } } }
+
+     image.at<Vec3b>(y,x)[0] = pixelGreen;
+     image.at<Vec3b>(y,x)[1] = pixelBlue;
+     image.at<Vec3b>(y,x)[2] = pixelGreen;
+} }
 
   //Save thresholded image
-  imwrite("colourthr.jpg", image);
+  imwrite("mandrill0_fixed.jpg", image);
 
   return 0;
 }
