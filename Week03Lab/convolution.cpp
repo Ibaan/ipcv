@@ -34,7 +34,11 @@ int main( int argc, char** argv )
  Mat carBlurred;
  GaussianBlur(gray_image,23,carBlurred);
 
- imwrite( "blur.jpg", carBlurred );
+ Mat detail, sharpened;
+ detail = gray_image - carBlurred;
+ sharpened = gray_image + 1.0*detail;
+
+ imwrite( "blur.jpg", sharpened );
 
  return 0;
 }
